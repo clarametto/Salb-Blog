@@ -34,23 +34,26 @@
           </div>
         </form>
         {% if blog.user == current_user %}
-        <a class="btn btn-info btn-sm m-1" href="{{url_for('main.updateblog',blog_id = blog.id)}}"><i class="fas fa-edit" style='font-size:30px;'></i><br>Edit Blog</a>
-        <form id="deleteForm" action="{{url_for('main.delete_post',blog_id = blog.id)}}" method="POST">
-          <button class="btn btn-sm btn-danger m-1" type="submit"><i class="fas fa-trash" style='font-size:30px;'></i><br>Delete Blog </button>
-        </form>
+        <div class="d-flex-inline">
+          <a class="btn btn-info btn-sm m-2" href="{{url_for('main.updateblog',blog_id = blog.id)}}"><i class="fas fa-edit" style='font-size:15px;'></i><br>Edit Blog</a>
+          <form id="deleteForm" action="{{url_for('main.delete_post',blog_id = blog.id)}}" method="POST">
+            <button class="btn btn-sm btn-danger m-2" type="submit"><i class="fas fa-trash" style='font-size:15px;'></i><br>Delete Blog </button>
+          </form>
+        </div>
         {% endif %}
       </div>
       <div class="comments">
         <h3>Comments</h3>
         {% for comment in comments %}
         <p class="mt-10"><span style="font-weight: bold">{{comment.user.username}} : </span> {{comment.comment}}</p>
-        <a href="{{url_for('main.delete_comment', id = blog.id, comment_id = comment.id)}}"
-          class="btn text-white btn-danger"> <i class="far fa-trash-alt"></i><br>Delete
-        </a>
+        <a href="{{url_for('main.delete_comment', id = blog.id, comment_id = comment.id)}}" class="btn btn-sm text-white btn-danger"> <i class="far fa-trash-alt"></i><br>Delete</a>
         {% endfor %}
       </div>
     </div>
-    <div class="col-md-3"></div>
+  <div class="col-md-3"></div>
   </div>
 </div>
+
+{% include 'footer.html' %}
+
 {% endblock %}

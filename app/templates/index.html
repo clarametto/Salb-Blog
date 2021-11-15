@@ -14,12 +14,14 @@
 <div class="container">
   <div>
     <!-- Random Quotes -->
-    <div class="bg-danger rounded px-5 py-4">
-      <div class="text-center px-5 py-4">
-        <span class="px-5"><i class="fas fa-quote-left"></i> <em class="quote">{{quote.quote}}</em> <i class="fas fa-quote-right"></i></span>
-        <h6>{{quote.author}}</h6>
-      </div>
-    </div>
+    <figure class="text-center bg-danger rounded">
+      <blockquote class="blockquote">
+        <span><i class="fas fa-quote-left"></i> <em class="quote">{{quote.quote}}</em> <i class="fas fa-quote-right"></i></span>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        <cite title="Source Title"><h6>{{quote.author}}</h6></cite>
+      </figcaption>
+    </figure>
     
     <div class="text-center">
       <form id="subscribeForm" class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST">
