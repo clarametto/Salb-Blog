@@ -93,3 +93,24 @@ def updateblog(blog_id):
     return render_template('edit_blog.html', form = form)
 
 
+
+@main.route('/comment/<blog_id>', methods = ['Post','GET'])
+@login_required
+def comment(blog_id):
+    blog = Blog.query.get(blog_id)
+    comment =request.form.get('newcomment')
+    new_comment = Comment(comment = comment, user_id = current_user._get_current_object().id, blog_id=blog_id)
+    new_comment.save()
+    return redirect(url_for('main.blog',id = blog.id))
+
+
+
+@main.route("/blog/<int:id>/<int:comment_id>/delete")
+@login_required
+def delete_comment(id, comment_id):
+    blog = Blog.query.filter_by(id = id).first()
+    comment = Comment.query.filter_by(id = comment_id).first()
+    db.session.delete(comment)
+    db.session.commit()
+    return redirect(url_for('main.blog',id = blog.id))
+
