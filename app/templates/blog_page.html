@@ -11,49 +11,56 @@
 {% endblock %}
 
 {% block content %}
-<div class="container ">
-  <h4 class="text-center"> By:  {{blog.user.username}}</h4>
-
-  <hr>
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <h3>{{blog.title | upper}}</h3>
-      <h5>{{blog.description}}</h5>
-      <h5>{{blog.content}}</h5>
-      <p>Posted on :<small class="text-muted mr-2"> {{blog.time.strftime('%d-%m-%Y')}}</small> by
-        {{blog.user.username}}</p>
-      <div>
-        <form  action="{{url_for('main.comment',blog_id = blog.id)}}" method="POST">
-          <div class="md-form form-group">
-            <label for="form92">Comment Type</label><br>
-            <textarea id="comment" type="text" class="form-control" name="newcomment" required></textarea>
+  <div style="background: #E5E5E5;">
+    <div class="container">
+      <h4 class="text-center"> By:  {{blog.user.username}}</h4>
+  
+      <hr>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <h3>{{blog.title | upper}}</h3>
+          <h5>{{blog.description}}</h5>
+          <h5>{{blog.content}}</h5>
+          <p>Posted on :<small class="text-muted mr-2"> {{blog.time.strftime('%d-%m-%Y')}}</small> by
+            {{blog.user.username}}</p>
+          <div>
+            <form  action="{{url_for('main.comment',blog_id = blog.id)}}" method="POST">
+              <div class="md-form form-group">
+                <label for="form92">Comment Type</label><br>
+                <textarea id="comment" type="text" class="form-control" name="newcomment" required></textarea>
+              </div>
+              <div class="md-form form-group">
+                <button class="btn btn-success">Comment</button>
+              </div>
+            </form>
+            {% if blog.user == current_user %}
+            <div class="d-flex">
+                <a class="btn btn-info btn-sm mx-2" href="{{url_for('main.updateblog',blog_id = blog.id)}}"><i class="fas fa-edit" style='font-size:15px;'></i>Edit Blog</a>
+                <br>
+                <form id="deleteForm" action="{{url_for('main.delete_post',blog_id = blog.id)}}" method="POST">
+                  <button class="btn btn-sm btn-danger mx-2" type="submit"><i class="fas fa-trash" style='font-size:15px;'></i>Delete Blog </button>
+                </form>
+            </div>
+            {% endif %}
           </div>
-          <div class="md-form form-group">
-            <button class="btn btn-success">Comment</button>
+          <div>
+            <div class="text-center">
+              <h3><u>Comments</u></h3>
+            </div>
+            {% for comment in comments %}
+            <p class="mt-10"><span style="font-weight: bold">{{comment.user.username}} : </span> {{comment.comment}}</p>
+            <small>
+              <a href="{{url_for('main.delete_comment', id = blog.id, comment_id = comment.id)}}" class="btn btn-sm text-white btn-danger"> <i class="far fa-trash-alt"></i><br>Delete</a>
+            </small>
+            {% endfor %}
           </div>
-        </form>
-        {% if blog.user == current_user %}
-        <div class="d-flex-inline">
-          <a class="btn btn-info btn-sm m-2" href="{{url_for('main.updateblog',blog_id = blog.id)}}"><i class="fas fa-edit" style='font-size:15px;'></i><br>Edit Blog</a>
-          <form id="deleteForm" action="{{url_for('main.delete_post',blog_id = blog.id)}}" method="POST">
-            <button class="btn btn-sm btn-danger m-2" type="submit"><i class="fas fa-trash" style='font-size:15px;'></i><br>Delete Blog </button>
-          </form>
         </div>
-        {% endif %}
-      </div>
-      <div class="comments">
-        <h3>Comments</h3>
-        {% for comment in comments %}
-        <p class="mt-10"><span style="font-weight: bold">{{comment.user.username}} : </span> {{comment.comment}}</p>
-        <a href="{{url_for('main.delete_comment', id = blog.id, comment_id = comment.id)}}" class="btn btn-sm text-white btn-danger"> <i class="far fa-trash-alt"></i><br>Delete</a>
-        {% endfor %}
+      <div class="col-md-3"></div>
       </div>
     </div>
-  <div class="col-md-3"></div>
+
   </div>
-</div>
-
-{% include 'footer.html' %}
-
+  {% include 'footer.html' %}
+  
 {% endblock %}
