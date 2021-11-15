@@ -12,7 +12,7 @@ This is a Personal Blogging website where you can create and share posts. Other 
 
 ### Prerequisites
 - Flask 1.1.2
-- python 3
+- python 3.9
 - Terminal
 
 ### Setup / Installation
@@ -26,39 +26,29 @@ https://github.com/clarametto/Salb-Blog
 
 
 - Python
--Flask
+- Flask
 - Bootstrap
 
 
 ### Dependencies
-* click==7.1.2
-* dominate==2.6.0
-* Flask==1.1.4
-* Flask-Bootstrap==3.3.7.1
-* Flask-Script==2.0.6
-* gunicorn==20.1.0
-* importlib-metadata==4.8.1
-* itsdangerous==1.1.0
-* Jinja2==2.11.3
-* MarkupSafe==2.0.1
-* typing-extensions==3.10.0.2
-* visitor==0.1.3
-* Werkzeug==1.0.1
-* yapf==0.31.0
-* zipp==3.6.0
 
+* Flask==1.1.4
+* Flask-Bootstrap
+* Flask-Script
+* Jinja2
+* Werkzeug
 
 
 ### Live Link
-[Click Here To View](https://clara-pitches.herokuapp.com/)
+[Click Here To View](https://clara-blog.herokuapp.com/)
 
 
 ### Sample Screenshots
-![Screenshot](https://thumbs2.imgbox.com/68/f3/dh3OnZxT_t.png)
+![Screenshot](https://res.cloudinary.com/clarametto-com/image/upload/v1637018252/Screenshot_from_2021-11-16_02-16-15_qkxzh7.png)
 
 
 ### Contact
-Phone No: **+254 712 258 880**  
+Phone No: **[+254 712 258 880](tel:+254712258880)**
 Email: **[clara.metto@student.moringaschool.com](mailto:clara.metto@student.moringaschool.com)**
 
 
