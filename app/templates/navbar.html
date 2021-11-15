@@ -1,5 +1,5 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
+<nav class="navbar navbar-default" style="background-color: teal;">
+    <div class="container">
       <!-- Toggler -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -9,36 +9,30 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" style="font-family: 'Petemoss', cursive;" href="/">Salb Blog</a>
+        <a class="navbar-brand" style="font-family: 'Petemoss', cursive; color: wheat;" href="/">Salb Blog</a>
       </div>
       <!-- Navbar -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="">
             {% if current_user.is_authenticated %}
-            <a class="btn btn-outline-primary" id="post" href="{{url_for('main.new_blog')}}">Post</a>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" style='margin-right:30px' data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              <i class="fas fa-user"></i>&nbsp;<strong>{{current_user.username}}</strong> </a>
+            <a class="btn btn-outline-primary" style="color: wheat !important;" href="{{url_for('main.new_blog')}}">Post</a>
+          <li class="nav-item dropdown" style="color: wheat;">
+            <a class="nav-link dropdown-toggle" style="color: wheat; margin-right:30px" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-user"></i>&nbsp;<strong>{{current_user.username}}</strong> </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-              <a class="dropdown-item" href="{{url_for('main.profile',name=current_user.username)}}"><i
-                  class="far fa-user"></i>&nbsp; My account</a><br>
-              <a class="dropdown-item" href="{{url_for('auth.logout')}}"><i class="fas fa-sign-out-alt"></i>&nbsp; Log
-                out</a>
+              <a class="dropdown-item ms-2 text-decoration-none" style="color: wheat;" href="{{url_for('main.profile',name=current_user.username)}}"><i class="far fa-user"></i>&nbsp; My account</a><br>
+              <a class="dropdown-item ms-2 text-decoration-none" style="color: wheat;" href="{{url_for('auth.logout')}}"><i class="fas fa-sign-out-alt"></i>&nbsp; Log Out</a>
             </div>
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{{url_for('auth.login')}}" style='margin-right:30px'><i
-                class="fas fa-sign-in-alt"></i>&nbsp; <strong>Log In</strong></a>
+            <a class="nav-link" href="{{url_for('auth.login')}}" style="color: wheat; margin-right:30px;"><i class="fas fa-sign-in-alt"></i>&nbsp; <strong>Log In</strong></a>
           </li>
           <li class="nav-item">
-            <a style='margin-right:30px' class="nav-link" href="{{url_for('auth.signup')}}"><i
-                class="fas fa-user-plus"></i></i>&nbsp; <strong>Sign Up</strong></a>
+            <a style="margin-right:30px; color: wheat;" class="nav-link" href="{{url_for('auth.signup')}}"><i class="fas fa-user-plus"></i></i>&nbsp; <strong>Sign Up</strong></a>
           </li>
           {%endif%}
         </ul>
       </div>
     </div>
-  </nav>
+</nav>
