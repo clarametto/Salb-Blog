@@ -1,0 +1,4 @@
+Hello {{user.username}}
+We welcome you to Salb blog. Expect to be notified whenever we post a new blog
+Regards,
+Salb blog.
