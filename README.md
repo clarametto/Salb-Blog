@@ -40,7 +40,7 @@ https://github.com/clarametto/Salb-Blog
 
 
 ### Live Link
-[Click Here To View](https://clara-blog.herokuapp.com/)
+[Click Here To View](https://salb-blog.herokuapp.com/)
 
 
 ### Sample Screenshots
