@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+<!-- Styles block -->
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="../static/css/index.css" />
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div>
+    
+    <span class="subheading"><i class="fas fa-quote-left"></i> <em class="quote">{{quote.quote}}</em> <i
+        class="fas fa-quote-right"></i></span>
+    <h6>{{quote.author}}</h6>
+    <form id="subscribeForm" class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST">
+      <h2 class="subscribe">Become a Subscriber</h2>
+      <div class="md-form form-group">
+        <input type="email" class="form-control" placeholder="Your email Address here..." name="subscriber" required>
+      </div>
+      <div class="md-form form-group">
+        <button class="btn btn-sm btn-primary" id="subs">Subscribe</button>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="text-center">
+      <h2>Current Blogs</h2>
+    </div>
+    {% for blog in blogs %}
+    <div class="col-md-4">
+      
+        <h4><a href="{{url_for('main.blog',id = blog.id)}}">{{blog.title | upper}}</a></h4>
+        <h5>{{blog.description}}</h5>
+        <p>Posted on :<small class="text-muted mr-2"> {{blog.time.strftime('%d-%m-%Y')}}</small> by <a href="user/{{blog.user.username}}">{{blog.user.username}}</a></p>
+        <p> <a class="btn btn-sm btn-primary" href="{{url_for('main.blog',id = blog.id)}}">{{blog.comment.count()}} <i class="far fa-comments"  style='font-size:30px;'></i></a></p>
+
+    </div>
+
+    {% endfor %}
+  </div>
+
+</div>
+
+{% endblock %}
