@@ -46,7 +46,7 @@
           <h4><a href="{{url_for('main.blog',id = blog.id)}}">{{blog.title}}</a></h4>
           <h5>{{blog.description}}</h5>
           <p>Posted on :<small class="text-muted mr-2"> {{blog.time.strftime('%d-%m-%Y')}}</small> by <a href="user/{{blog.user.username}}">{{blog.user.username}}</a></p>
-          <p> <a class="btn btn-sm btn-primary" href="{{url_for('main.blog',id = blog.id)}}">{{blog.comment.count()}} <i class="far fa-comments"  style='font-size:30px;'></i></a></p>
+          <p> <a class="btn btn-sm btn-primary" href="{{url_for('main.blog',id = blog.id)}}">{{blog.comment.count()}} <i class="fas fa-comment"  style='font-size:30px;'></i></a></p>
 
       </div>
 

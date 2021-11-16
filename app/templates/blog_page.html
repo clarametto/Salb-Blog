@@ -36,7 +36,7 @@
             </form>
             {% if blog.user == current_user %}
             <div class="d-flex">
-                <a class="btn btn-info btn-sm mx-2" href="{{url_for('main.updateblog',blog_id = blog.id)}}"><i class="fas fa-edit" style='font-size:15px;'></i>Edit Blog</a>
+                <a class="btn btn-info btn-sm mx-2" href="{{url_for('main.updateblog',blog_id = blog.id)}}"><i class="fas fa-edit" style='font-size:15px;'></i>Edit Blog</a><br>
                 <br>
                 <form id="deleteForm" action="{{url_for('main.delete_post',blog_id = blog.id)}}" method="POST">
                   <button class="btn btn-sm btn-danger mx-2" type="submit"><i class="fas fa-trash" style='font-size:15px;'></i>Delete Blog </button>
